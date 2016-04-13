@@ -13,6 +13,13 @@ import os
 import subprocess
 import re
 
+# For python 2->3 compatibility:
+try:
+    # Only exists in py3: 
+    FileNotFoundError
+except NameError:
+    FileNotFoundError = OSError
+
 __all__ = ['qsub']
 
 PBS_MPI = \
